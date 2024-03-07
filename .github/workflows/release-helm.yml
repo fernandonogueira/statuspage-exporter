@@ -1,0 +1,28 @@
+name: Release Helm
+on:
+  workflow_dispatch:
+    inputs:
+      tag:
+        description: 'Tag'
+        required: true
+
+permissions:
+  packages: write
+
+jobs:
+  build:
+    runs-on: ubuntu-latest
+    steps:
+    - name: Checkout
+      uses: actions/checkout@v2
+    - name: Chart | Push
+      uses: appany/helm-oci-chart-releaser@v0.3.0
+      with:
+        name: statuspage-exporter-chart
+        repository: fernandonogueira
+        tag: ${{ github.event.inputs.tag }}
+        path: charts/statuspage-exporter-chart
+        registry: ghcr.io
+        registry_username: ${{ secrets.REGISTRY_USERNAME }}
+        registry_password: ${{ secrets.REGISTRY_PASSWORD }}
+        update_dependencies: 'true'
