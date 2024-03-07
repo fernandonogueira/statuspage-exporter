@@ -15,14 +15,10 @@ jobs:
     steps:
     - name: Checkout
       uses: actions/checkout@v2
-    - name: Chart | Push
-      uses: appany/helm-oci-chart-releaser@v0.3.0
-      with:
-        name: statuspage-exporter-chart
-        repository: fernandonogueira
-        tag: ${{ github.event.inputs.tag }}
-        path: charts/statuspage-exporter-chart
-        registry: ghcr.io
-        registry_username: ${{ secrets.REGISTRY_USERNAME }}
-        registry_password: ${{ secrets.REGISTRY_PASSWORD }}
-        update_dependencies: 'true'
+    - name: Chart | Build | Push
+      working-directory: "helm/statuspage-exporter"
+      run: |
+        echo $GITHUB_TOKEN | helm registry login ghcr.io/fernandonogueira --username fernandonogueira --password-stdin
+        helm package .
+        helm push statuspage-exporter-${{ github.event.inputs.tag }}.tgz oci://ghcr.io/fernandonogueira/statuspage-exporter
+        
