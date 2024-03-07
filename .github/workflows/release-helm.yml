@@ -20,5 +20,5 @@ jobs:
       run: |
         echo $GITHUB_TOKEN | helm registry login ghcr.io/fernandonogueira --username fernandonogueira --password-stdin
         helm package .
-        helm push statuspage-exporter-${{ github.event.inputs.tag }}.tgz oci://ghcr.io/fernandonogueira/statuspage-exporter
+        helm push statuspage-exporter-chart-${{ github.event.inputs.tag }}.tgz oci://ghcr.io/fernandonogueira/statuspage-exporter
         
