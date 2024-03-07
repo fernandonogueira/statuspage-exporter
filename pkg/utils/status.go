@@ -4,6 +4,8 @@ import "github.com/fernandonogueira/statuspage-exporter/pkg/engines/types"
 
 func StatusToString(status types.Status) string {
 	switch status {
+	case types.UnknownStatus:
+		return "unknown"
 	case types.OperationalStatus:
 		return "operational"
 	case types.PlannedMaintenanceStatus:
