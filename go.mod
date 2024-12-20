@@ -1,9 +1,11 @@
 module github.com/fernandonogueira/statuspage-exporter
 
-go 1.22
+go 1.23
+
+toolchain go1.23.4
 
 require (
-	github.com/PuerkitoBio/goquery v1.9.2
+	github.com/PuerkitoBio/goquery v1.10.0
 	github.com/go-resty/resty/v2 v2.15.3
 	github.com/labstack/echo-contrib v0.17.1
 	github.com/labstack/echo/v4 v4.13.3
