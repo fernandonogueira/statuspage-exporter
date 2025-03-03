@@ -1,6 +1,6 @@
 module github.com/fernandonogueira/statuspage-exporter
 
-go 1.22
+go 1.24
 
 require (
 	github.com/PuerkitoBio/goquery v1.9.2
@@ -17,7 +17,6 @@ require (
 	github.com/beorn7/perks v1.0.1 // indirect
 	github.com/cespare/xxhash/v2 v2.3.0 // indirect
 	github.com/fsnotify/fsnotify v1.7.0 // indirect
-	github.com/golang-jwt/jwt v3.2.2+incompatible // indirect
 	github.com/hashicorp/hcl v1.0.0 // indirect
 	github.com/klauspost/compress v1.17.11 // indirect
 	github.com/labstack/gommon v0.4.2 // indirect

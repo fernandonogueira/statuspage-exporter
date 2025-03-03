@@ -21,7 +21,7 @@ jobs:
 
       - uses: actions/setup-go@v5
         with:
-          go-version: 1.22
+          go-version: '^1.24'
 
       # Initializes the CodeQL tools for scanning.
       - name: Initialize CodeQL
@@ -44,9 +44,7 @@ jobs:
     steps:
       - uses: actions/setup-go@v5
         with:
-          go-version: 1.22
+          go-version: '^1.24'
       - uses: actions/checkout@v4
       - name: Run golangci-lint
         uses: golangci/golangci-lint-action@v6.5.0
-        with:
-          version: v1.56.2
