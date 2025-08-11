@@ -17,7 +17,7 @@ jobs:
 
     steps:
       - name: Checkout repository
-        uses: actions/checkout@v4
+        uses: actions/checkout@v5
 
       - uses: actions/setup-go@v5
         with:
@@ -45,6 +45,6 @@ jobs:
       - uses: actions/setup-go@v5
         with:
           go-version: '^1.24'
-      - uses: actions/checkout@v4
+      - uses: actions/checkout@v5
       - name: Run golangci-lint
         uses: golangci/golangci-lint-action@v6.5.2
